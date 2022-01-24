@@ -1,0 +1,15 @@
+---
+- hosts: webserver
+  become: yes
+  become_user: root
+  gather_facts: no
+
+  tasks:
+    - name: "Uninstall the Package"
+      apt:
+        name: nginx
+        state: absent
+    - name: "Stop the service"
+      service:
+        name: nginx
+        state: stopped

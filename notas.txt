@@ -1,0 +1,1 @@
+az resource tag --tags role=webserver -n EAOVM -g eao --resource-type "Microsoft.Compute/virtualMachines"

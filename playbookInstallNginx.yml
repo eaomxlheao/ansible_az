@@ -1,0 +1,29 @@
+---
+- hosts: webserver
+  become: yes
+  become_user: root
+  gather_facts: no
+
+  tasks:
+    - name: "Stop the service"
+      service:
+        name: nginx
+        state: stopped
+    - name: "Uninstall the Package"
+      apt:
+        name: nginx
+        state: absent    
+    - name: "Install the Package"
+      apt:
+        name: nginx
+        state: present
+    - name: "Custom default page"
+      become: true
+      copy:
+        src: ./index.html
+        dest: /var/www/html/index.html
+        owner: root
+    - name: "Restart the service"
+      service:
+        name: nginx
+        state: restarted

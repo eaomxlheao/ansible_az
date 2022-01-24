@@ -1,0 +1,5 @@
+[webserver]
+web1 ansible_host=137.117.254.137 ansible_connection=ssh ansible_user=eaomxlheao ansible_ssh_pass=Moquito1 ansible_port=22
+
+[qa]
+web1
